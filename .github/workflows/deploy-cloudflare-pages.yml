@@ -19,6 +19,7 @@ on:
 
 permissions:
   contents: read
+  deployments: write
 
 concurrency:
   group: zorgtechadvies-pages-${{ github.event_name }}-${{ github.ref }}
@@ -51,6 +52,7 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
           command: pages deploy website/dist --project-name=${{ vars.CLOUDFLARE_PAGES_PROJECT }} --branch=${{ github.head_ref }}
 
   production:
@@ -79,4 +81,5 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
           command: pages deploy website/dist --project-name=${{ vars.CLOUDFLARE_PAGES_PROJECT }} --branch=main
