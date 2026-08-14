@@ -69,7 +69,7 @@ Reasons:
 - excellent fit for articles and archive pages;
 - content can be schema-validated;
 - Git remains canonical;
-- Cloudflare supports Git-triggered builds and previews.
+- Cloudflare supports automated deployments and preview deployments.
 
 ### Content editing
 
@@ -87,12 +87,17 @@ Point it to this repository and configure build/deploy after the Astro migration
 
 ### If current project is Direct Upload
 
-Cloudflare does not allow an existing Direct Upload Pages project to be converted to Git integration. Two valid migration paths:
+Cloudflare does not allow an existing Direct Upload Pages project to be converted to native Git integration. The recommended first step is therefore **not** to move the production domain unnecessarily.
 
-1. **Preferred for long-term simplicity:** create a new Git-integrated Pages project, validate preview/production parity, then move the custom domain.
-2. **Lower migration risk:** keep the existing Direct Upload project but deploy to it from GitHub Actions using Wrangler. GitHub still becomes source of truth, but native Pages Git previews are less elegant.
+Use GitHub Actions + Wrangler to build from this repository and deploy the existing Pages project. This immediately gives the desired source-of-truth chain:
 
-Do not change the production domain until visual/content parity is checked.
+`GitHub -> build -> Wrangler -> existing Cloudflare Pages project`
+
+Wrangler can deploy non-production branches as preview deployments using the branch name, so the current project can still support preview URLs.
+
+Only create a new Git-integrated Pages project later if the additional native GitHub/Cloudflare integration (automatic PR checks, branch controls and tighter dashboard integration) is worth a domain/project migration.
+
+This order minimises production risk while still ending manual uploads immediately.
 
 ## Release model
 
@@ -100,8 +105,8 @@ Recommended:
 
 - feature/content branch;
 - pull request;
-- Cloudflare preview URL;
+- Cloudflare preview deployment;
 - human visual/content review;
 - merge to `main`;
-- automatic production deploy;
+- automatic production deployment to the existing or replacement Pages project;
 - ability to roll back to a prior Git commit/deployment.
