@@ -1,0 +1,43 @@
+version: 1
+updated: 2026-08-14
+status: canonical
+phases:
+  PRE_PROBLEM:
+    label_nl: "Vóór probleemdefinitie"
+    editorial_angle: "Duiding: wat betekent deze ontwikkeling voor ons?"
+    default_next_step: "Volgen / relatie opbouwen"
+    proposition: null
+  PROBLEM_DEFINITION:
+    label_nl: "Probleemdefinitie"
+    editorial_angle: "Hoe stel je de vraag goed voordat je techniek of leverancier kiest?"
+    default_next_step: "Keuzekader / verkennend gesprek"
+    proposition: "KetenScan"
+  PVE_SELECTION:
+    label_nl: "PvE en selectie"
+    editorial_angle: "Criteria, functionele uitvraag en selectiefouten"
+    default_next_step: "Vergelijkings- of uitvraagkader"
+    proposition: "PvE / functionele uitvraag / leveranciersselectie"
+  IMPLEMENTATION:
+    label_nl: "Implementatie loopt"
+    editorial_angle: "Ketenregie, afhankelijkheden en uitvoerbaarheid"
+    default_next_step: "Verkennend gesprek"
+    proposition: "Implementatie- en ketenregie"
+  STALLED_RESET:
+    label_nl: "Implementatie loopt stroef"
+    editorial_angle: "Escalatiepatronen, onafhankelijke diagnose en resetlogica"
+    default_next_step: "Verkennend gesprek"
+    proposition: "Projectreset / second opinion / assurance"
+  POST_GO_LIVE:
+    label_nl: "Net live"
+    editorial_angle: "Borging, tuning, adoptie en Proof of Value"
+    default_next_step: "Praktische check / verkennend gesprek"
+    proposition: "Proof of Value / adoptie / borging"
+  MATURE_FRAGMENTED:
+    label_nl: "Volwassen / versnipperd"
+    editorial_angle: "Portfolio, lifecycle, standaarden en beheersbaarheid"
+    default_next_step: "Verkennend gesprek"
+    proposition: "Portfolio- en standaardisatiereview"
+rules:
+  - "Phase is a hypothesis until verified."
+  - "Do not force an offer in PRE_PROBLEM."
+  - "KetenScan remains flagship for open problem-definition questions."
