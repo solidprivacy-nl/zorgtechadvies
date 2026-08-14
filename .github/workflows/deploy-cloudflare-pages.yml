@@ -5,12 +5,14 @@ on:
     branches: [main]
     paths:
       - "website/site/**"
+      - "website/baselines/v13/source/**"
       - "scripts/verify-v13-baseline.sh"
       - ".github/workflows/deploy-cloudflare-pages.yml"
   push:
     branches: [main]
     paths:
       - "website/site/**"
+      - "website/baselines/v13/source/**"
       - "scripts/verify-v13-baseline.sh"
       - ".github/workflows/deploy-cloudflare-pages.yml"
   workflow_dispatch:
@@ -26,12 +28,11 @@ jobs:
   preview:
     if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
-    environment: cloudflare-preview
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Verify exact v13 production baseline
+      - name: Build and verify exact v13 deployment artifact
         run: bash scripts/verify-v13-baseline.sh
 
       - name: Validate Cloudflare configuration
@@ -50,17 +51,16 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy website/site --project-name=${{ vars.CLOUDFLARE_PAGES_PROJECT }} --branch=${{ github.head_ref }}
+          command: pages deploy website/dist --project-name=${{ vars.CLOUDFLARE_PAGES_PROJECT }} --branch=${{ github.head_ref }}
 
   production:
-    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+    if: github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main')
     runs-on: ubuntu-latest
-    environment: cloudflare-production
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Verify exact v13 production baseline
+      - name: Build and verify exact v13 deployment artifact
         run: bash scripts/verify-v13-baseline.sh
 
       - name: Validate Cloudflare configuration
@@ -79,4 +79,4 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy website/site --project-name=${{ vars.CLOUDFLARE_PAGES_PROJECT }} --branch=main
+          command: pages deploy website/dist --project-name=${{ vars.CLOUDFLARE_PAGES_PROJECT }} --branch=main
