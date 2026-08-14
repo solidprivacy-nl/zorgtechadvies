@@ -5,11 +5,13 @@ on:
     branches: [main]
     paths:
       - "website/site/**"
+      - "scripts/verify-v13-baseline.sh"
       - ".github/workflows/deploy-cloudflare-pages.yml"
   push:
     branches: [main]
     paths:
       - "website/site/**"
+      - "scripts/verify-v13-baseline.sh"
       - ".github/workflows/deploy-cloudflare-pages.yml"
   workflow_dispatch:
 
@@ -28,6 +30,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Verify exact v13 production baseline
+        run: bash scripts/verify-v13-baseline.sh
 
       - name: Validate Cloudflare configuration
         shell: bash
@@ -54,6 +59,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Verify exact v13 production baseline
+        run: bash scripts/verify-v13-baseline.sh
 
       - name: Validate Cloudflare configuration
         shell: bash
