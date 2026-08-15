@@ -8,18 +8,13 @@ Build a credible, repeatable commercial intelligence system in which GitHub is t
 
 ## Current P1 — tangible KetenScan proof
 
-The highest current commercial-content priority is the publishable example KetenScan evidence asset.
+**Priority 1 is now the development of the approved synthetic KetenScan scenario 1: VVT / VOS renewal.**
 
-This work is gated deliberately:
+Gate A is complete for scenario 1. Gate B is authorised: create the substantive content-first example KetenScan, freeze it for independent review, and only after substantive approval decide on final PDF/web presentation. Scenarios 2 and 3 remain parked.
 
-1. develop three materially different, credible synthetic problem statements/outlines;
-2. debate, revise and explicitly approve those problem statements;
-3. only after approval, produce the full example KetenScan advice outputs;
-4. then package the strongest material for website and sales use.
+This evidence asset may run in parallel with the GitHub → Wrangler → Cloudflare bootstrap. Infrastructure work must not block content development, and content development must not be used to bypass deployment gates.
 
-Do not skip directly to polished advice. The credibility of the final proof depends first on whether the underlying client situations are recognisable, ambiguous enough to justify a KetenScan, and sufficiently different to demonstrate the breadth of the doctrine without turning the offer into a generic consultancy menu.
-
-Canonical workpackage: GitHub issue #2.
+Canonical workpackage: GitHub issue #2 and `evidence/example-ketenscan/scenario-1-vvt-vos/BRIEF.md`.
 
 ## Phase 0 — Architecture freeze and repository bootstrap
 
@@ -42,16 +37,15 @@ Exit condition: no material contradiction remains between commercial model, cont
 
 Priority order:
 
-1. **complete Gate A for the example KetenScan: three problem statements/outlines, principal debate and approval; then proceed to Gate B only after explicit approval;**
-2. operationalise source class B (TenderNed/Mercell/TED searches);
-3. migrate v3.1 logic to v3.2 terminology/states;
-4. start named-market register without publishing personal lead data in this public repo;
-5. test current CONTACT accounts with verification questions;
-6. start systematic LinkedIn connection/engagement routine;
-7. produce the approved full example KetenScan evidence assets;
+1. **develop and independently review the approved scenario-1 example KetenScan;**
+2. complete the GitHub → Wrangler → existing Cloudflare Pages bootstrap and preview path;
+3. operationalise source class B (TenderNed/Mercell/TED searches);
+4. migrate v3.1 logic to v3.2 terminology/states;
+5. start named-market register without publishing personal lead data in this public repo;
+6. test current CONTACT accounts with verification questions;
+7. start systematic LinkedIn connection/engagement routine;
 8. establish doctrine/style contracts for AI-supported work;
-9. publish the first 1–2 core authority pieces;
-10. complete the GitHub/Cloudflare deployment bootstrap and capture exact current website source.
+9. publish the first 1–2 core authority pieces.
 
 ## Phase 2 — Evidence and corpus (approximately weeks 7–12)
 
@@ -75,16 +69,15 @@ Can run partly in parallel with phases 1–2.
 Steps:
 
 1. obtain exact current production source or reconstruct current live site with visual parity;
-2. migrate to Astro static-first architecture;
-3. create Markdown/MDX insight collections;
-4. implement `/inzichten/` archive and article template;
-5. add lightweight phase-aware section to homepage;
-6. add example-KetenScan evidence block/page;
-7. connect GitHub to Cloudflare build/deploy path;
+2. prove the static v13 GitHub → Wrangler path against the existing Cloudflare Pages project;
+3. migrate to Astro static-first architecture only after static parity/deployment stability;
+4. create Markdown/MDX insight collections;
+5. implement `/inzichten/` archive and article template;
+6. add lightweight phase-aware section to homepage;
+7. add example-KetenScan evidence block/page after substantive approval;
 8. validate branch/PR previews;
 9. perform content, responsive and visual parity checks;
-10. switch production domain only after approval;
-11. retire manual loose-HTML publishing.
+10. retire manual loose-HTML publishing.
 
 ## Phase 4 — Proprietary intelligence
 
