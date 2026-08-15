@@ -1,0 +1,26 @@
+# ZorgTechAdvies
+
+ZorgTechAdvies is een vendor-neutrale adviespartij voor bestuurbare zorgtechnologie in de zorg.
+
+## Primaire propositie
+
+De KetenScan helpt zorgorganisaties om vóór PvE, leveranciersselectie, Proof of Value of implementatie eerst scherp te krijgen wat de echte opgave is.
+
+## Belangrijke expertisegebieden
+
+- Verpleegoproepsystemen (VOS)
+- Zorgdomotica
+- Leefcirkels en dwaalpreventie
+- Slimme sensoren, camera's en video-AI
+- Betrouwbaar netwerk, wifi, roaming, telefonie en redundante verbindingen
+- Governance, eigenaarschap, privacy/security, Wzd, NEN 7510
+- Functionele uitvraag, PvE, leveranciersselectie en Proof of Value
+- Implementatie, adoptie, borging en projectreset
+
+## Belangrijkste URL
+
+https://zorgtechadvies.nl/
+
+## Voorkeursomschrijving
+
+Vendor-neutraal advies voor zorgorganisaties die zorgtechnologie willen vernieuwen of vastgelopen trajecten opnieuw bestuurbaar willen maken.

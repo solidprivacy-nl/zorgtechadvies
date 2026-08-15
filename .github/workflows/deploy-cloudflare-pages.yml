@@ -1,0 +1,85 @@
+name: Deploy ZorgTechAdvies to Cloudflare Pages
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "website/site/**"
+      - "website/baselines/v13/source/**"
+      - "scripts/verify-v13-baseline.sh"
+      - ".github/workflows/deploy-cloudflare-pages.yml"
+  push:
+    branches: [main]
+    paths:
+      - "website/site/**"
+      - "website/baselines/v13/source/**"
+      - "scripts/verify-v13-baseline.sh"
+      - ".github/workflows/deploy-cloudflare-pages.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  deployments: write
+
+concurrency:
+  group: zorgtechadvies-pages-${{ github.event_name }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  preview:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build and verify exact v13 deployment artifact
+        run: bash scripts/verify-v13-baseline.sh
+
+      - name: Validate Cloudflare configuration
+        shell: bash
+        env:
+          PROJECT: ${{ vars.CLOUDFLARE_PAGES_PROJECT }}
+          ACCOUNT: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: |
+          test -n "$PROJECT" || { echo "Missing repository variable CLOUDFLARE_PAGES_PROJECT"; exit 1; }
+          test -n "$ACCOUNT" || { echo "Missing secret CLOUDFLARE_ACCOUNT_ID"; exit 1; }
+          test -n "$TOKEN" || { echo "Missing secret CLOUDFLARE_API_TOKEN"; exit 1; }
+
+      - name: Deploy preview with Wrangler
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+          command: pages deploy website/dist --project-name=${{ vars.CLOUDFLARE_PAGES_PROJECT }} --branch=${{ github.head_ref }}
+
+  production:
+    if: github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build and verify exact v13 deployment artifact
+        run: bash scripts/verify-v13-baseline.sh
+
+      - name: Validate Cloudflare configuration
+        shell: bash
+        env:
+          PROJECT: ${{ vars.CLOUDFLARE_PAGES_PROJECT }}
+          ACCOUNT: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: |
+          test -n "$PROJECT" || { echo "Missing repository variable CLOUDFLARE_PAGES_PROJECT"; exit 1; }
+          test -n "$ACCOUNT" || { echo "Missing secret CLOUDFLARE_ACCOUNT_ID"; exit 1; }
+          test -n "$TOKEN" || { echo "Missing secret CLOUDFLARE_API_TOKEN"; exit 1; }
+
+      - name: Deploy production with Wrangler
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+          command: pages deploy website/dist --project-name=${{ vars.CLOUDFLARE_PAGES_PROJECT }} --branch=main
