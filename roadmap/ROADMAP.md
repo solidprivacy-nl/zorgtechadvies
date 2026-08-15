@@ -1,10 +1,25 @@
 # ZorgTechAdvies Roadmap
 
-Updated: 2026-08-14
+Updated: 2026-08-15
 
 ## North star
 
 Build a credible, repeatable commercial intelligence system in which GitHub is the canonical source for doctrine, proposition logic, lead methodology, content and website; evidence and conversations continuously improve the system.
+
+## Current P1 — tangible KetenScan proof
+
+The highest current commercial-content priority is the publishable example KetenScan evidence asset.
+
+This work is gated deliberately:
+
+1. develop three materially different, credible synthetic problem statements/outlines;
+2. debate, revise and explicitly approve those problem statements;
+3. only after approval, produce the full example KetenScan advice outputs;
+4. then package the strongest material for website and sales use.
+
+Do not skip directly to polished advice. The credibility of the final proof depends first on whether the underlying client situations are recognisable, ambiguous enough to justify a KetenScan, and sufficiently different to demonstrate the breadth of the doctrine without turning the offer into a generic consultancy menu.
+
+Canonical workpackage: GitHub issue #2.
 
 ## Phase 0 — Architecture freeze and repository bootstrap
 
@@ -27,15 +42,16 @@ Exit condition: no material contradiction remains between commercial model, cont
 
 Priority order:
 
-1. operationalise source class B (TenderNed/Mercell/TED searches);
-2. migrate v3.1 logic to v3.2 terminology/states;
-3. start named-market register without publishing personal lead data in this public repo;
-4. test current CONTACT accounts with verification questions;
-5. start systematic LinkedIn connection/engagement routine;
-6. produce a strong example KetenScan;
-7. establish doctrine/style contracts for AI-supported work;
-8. publish the first 1–2 core authority pieces;
-9. decide Cloudflare migration path and capture exact current website source.
+1. **complete Gate A for the example KetenScan: three problem statements/outlines, principal debate and approval; then proceed to Gate B only after explicit approval;**
+2. operationalise source class B (TenderNed/Mercell/TED searches);
+3. migrate v3.1 logic to v3.2 terminology/states;
+4. start named-market register without publishing personal lead data in this public repo;
+5. test current CONTACT accounts with verification questions;
+6. start systematic LinkedIn connection/engagement routine;
+7. produce the approved full example KetenScan evidence assets;
+8. establish doctrine/style contracts for AI-supported work;
+9. publish the first 1–2 core authority pieces;
+10. complete the GitHub/Cloudflare deployment bootstrap and capture exact current website source.
 
 ## Phase 2 — Evidence and corpus (approximately weeks 7–12)
 
